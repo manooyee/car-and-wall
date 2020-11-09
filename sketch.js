@@ -8,13 +8,15 @@ function setup() {
   wall = createSprite(1500,200,60,200);
   wall.shapeColor = (80,80,80);
 
-  speed = random(10,50);
-  weight = random(400,1700)
+  speed = Math.round(random(10,100));
+  weight = Math.round(random(400,1700));
 }
 
 function draw() {
   background(255,255,255);
   background("black");
+
+  car.velocityX = speed;
 
   if(wall.x-car.x<(car.width+wall.width)/2)
   {
@@ -37,7 +39,6 @@ function draw() {
   }
 
   car.collide(wall);
-  car.velocityX = speed;
  
 
   drawSprites();
